@@ -23,7 +23,7 @@ let elementsLi = document.getElementById('liste').addEventListener('click',funct
           clikElement.setAttribute('hidden','true');
       }
     
-});;
+});
 
 
 let elementInput = document.getElementById('nyvare');
@@ -54,3 +54,30 @@ let elementInput = document.getElementById('nyvare');
      listeusund.appendChild(newLi);
 
     }
+
+
+let fruits: string[] = ["Ananas", "Appelsin", "Banan", "Pære", "Æble"];
+
+function createLiElement(text : string, classAttribute : string, id : number) : HTMLLIElement {
+    let newLiElement = document.createElement("li");
+    let newText = document.createTextNode(text);
+
+    newLiElement.setAttribute("class", classAttribute);
+    // String converterer id'et fra et nummer til en string
+    newLiElement.setAttribute("id", String(id));
+    newLiElement.appendChild(newText);
+    
+    return newLiElement;
+}
+
+function createFruitList() : void {
+    let fruitlist = document.getElementById("fruits");
+
+    for (let index = 0; index < fruits.length; index++) {
+        let text = fruits[index];
+        let newLiElement : HTMLElement = createLiElement(text, "sundt", index);
+        fruitlist.appendChild(newLiElement);
+    }
+}
+
+createFruitList();
